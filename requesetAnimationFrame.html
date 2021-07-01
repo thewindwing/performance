@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 200px;
+            height: 200px;
+            background-color: #dd88ee;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+<script>
+    var wrap = document.getElementById('wrap');
+    var index = 0;
+    // var timeId=setInterval(function () {
+    //     index++;
+    //     wrap.style.transform=`translateX(${index}px)`;
+    // },50)
+    // setTimeout(function(){
+    //     clearInterval(timeId)
+    // },2000)
+
+    var id;
+
+    function move() {
+        index += 1;
+        wrap.style.transform = `translateX(${index}px)`;
+        id = requestAnimationFrame(move);
+    }
+
+    id = requestAnimationFrame(move);
+    setTimeout(function () {
+        cancelAnimationFrame(id);
+    }, 2000)
+</script>
+</body>
+</html>

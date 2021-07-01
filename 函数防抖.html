@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="text">
+<script>
+
+    var ipt = document.querySelector('input');
+    var timeId = null;
+    ipt.addEventListener('keyup', () => {
+        var value=ipt.value;
+        if (timeId) {
+            clearTimeout(timeId);
+        }
+        timeId = setTimeout(() => {
+            sendAjax(value);
+        }, 300)
+    })
+
+    function sendAjax(data) {
+        console.log(`发送了ajax请求${data}`);
+    }
+</script>
+</body>
+</html>

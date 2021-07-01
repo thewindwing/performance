@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="text">
+<script>
+
+    localStorage.setItem('demo', JSON.stringify({name: 'lily'}));
+    var data = JSON.parse(localStorage.getItem('demo'));
+    console.log(data);
+    // localStorage.removeItem('demo')
+    // localStorage.clear()
+
+
+    let ipt1 = document.querySelector('input');
+    ipt1.onblur = function () {//键盘输入的本来就是字符串
+        localStorage.setItem('data', ipt1.value);
+    }
+</script>
+</body>
+</html>
